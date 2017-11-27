@@ -1,0 +1,29 @@
+%div{:class => 'container'}
+  =form_tag url(:projeto, :create), :method => :post do
+    %form.form-horizontal
+      %fieldset
+        #legend
+          %legend Cadastrar novo projeto
+        .control-group
+          %label.control-label{:for => "nome"} Nome
+          .controls
+            %input#username.input-xlarge{:name => "nome", :placeholder => "", :type => "text", :style => 'width:40%'}/
+            %p.help-block
+        .control-group
+          %label.control-label{:for => "descricao"} Descrição
+          .controls
+            %textarea{:rows => "5", :name => "descricao", :placeholder => "", :style => 'width:40%'}
+            %p.help-block
+        .control-group
+          %label.control-label{:for => "status"} Status
+          .controls
+            %select.form-control{:rows => "5", :name => "status", :placeholder => "", :style => 'width:40%'}
+              %option{:value => '0'} Novo
+              %option{:value => '1'} Em andamento
+              %option{:value => '2'} Atrasado
+              %option{:value => '3'} Finalizado
+            %p.help-block
+        .control-group
+          / Button
+          .controls
+            %button.btn.btn-success Cadastrar

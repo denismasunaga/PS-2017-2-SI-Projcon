@@ -1,0 +1,51 @@
+%link{:rel => "stylesheet", :type => :"text/css", :href => "/stylesheets/bootstrap.min.css"}
+%link{:rel => "stylesheet", :type => :"text/css", :href => "/stylesheets/inicial.css"}
+
+.container
+  .row
+    %section.content
+      %h1 Projetos
+      .col-md-12
+        .panel.panel-default
+          .panel-body
+            .pull-right
+              .btn-group
+                %button.btn.btn-success.btn-filter{"data-target" => "3", :type => "button"} Finalizado
+                %button.btn.btn-warning.btn-filter{"data-target" => "1", :type => "button"} Em andamento
+                %button.btn.btn-danger.btn-filter{"data-target" => "2", :type => "button"} Atrasado
+                %button.btn.btn-info.btn-filter{"data-target" => "0", :type => "button"} Novo
+                %button.btn.btn-default.btn-filter{"data-target" => "todos", :type => "button"} Todos
+
+            .table-container
+              %table.table.table-filter
+                %thead
+                  %tr
+                    %th Nome
+                    %th{:style => "width: 20%"} Status
+                    %th{:style => "width: 15%"} Criado
+                    %th{:style => "width: 15%"} Atualizado
+                    %th{:style => "width: 15%"} Ação
+                %tbody
+                  -if @projetos
+                    -@projetos.each do |projeto|
+                      %tr{"data-status" => "#{projeto.status}", :id => 'dados'}
+                        %td
+                          =projeto.nome
+                        %td
+                          =projeto.status_string
+                        %td
+                          =projeto.created_at.strftime("%d/%m/%Y")
+                        %td
+                          -if projeto.updated_at
+                            =projeto.updated_at.strftime("%d/%m/%Y")
+                        %td
+                          .btn.btn-xs.btn-warning
+                            %a{:href=> url(:projeto, :atualizar, :id => projeto.id),:style=>'color: #ffffff'}
+                              Atualizar
+                          =form_tag url(:projeto, :destroy, :id => projeto.id), :method => :delete, :onsubmit=>"return confirm('Tem certeza que deseja deletar este projeto?');" do
+                            =submit_tag "Excluir", :class =>'btn btn-xs btn-danger'
+
+        .content-footer
+
+=javascript_include_tag 'bootstrap.min','jquery','inicial'
+

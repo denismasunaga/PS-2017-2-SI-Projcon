@@ -1,0 +1,20 @@
+%link{:rel => "stylesheet", :type => :"text/css", :href => "/stylesheets/application.css"}
+%link{:rel => "stylesheet", :type => :"text/css", :href => "/stylesheets/bootstrap.min.css"}
+
+%nav#header.navbar.navbar-fixed-top
+  #header-container.container.navbar-container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a#brand.navbar-brand{:href => url(:projeto, :new)} Novo Projeto
+    #navbar.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.active
+          %a{:href => "#"} Listagem
+        %li
+          %a{:href => "#about"} Sobre
+
+=yield

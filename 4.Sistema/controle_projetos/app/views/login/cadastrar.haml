@@ -1,0 +1,17 @@
+%link{:rel => "stylesheet", :type => :"text/css", :href => "/stylesheets/login.css"}
+
+.login-page
+  .formulario
+    =form_tag url(:account, :create), :method => :post do
+      .register-form
+        .form-group
+          %input{:placeholder => "Nome", :type => "text", :name => "name"}/
+          %input{:placeholder => "Sobrenome", :type => "text", :name => "surname"}/
+          %input{:placeholder => "Email", :type => "text", :name => "email"}/
+          %input{:placeholder => "Senha", :type => "password", :name => "password"}/
+          %input{:placeholder => "Confirmar senha", :type => "password", :name => "password_confirmation"}/
+          %button
+            criar
+          %p.message
+            Já tem conta?
+            %a{:href => "/inicial/login"} Logar

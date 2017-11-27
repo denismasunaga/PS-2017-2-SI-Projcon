@@ -1,0 +1,14 @@
+%link{:rel => "stylesheet", :type => :"text/css", :href => "/stylesheets/login.css"}
+
+.login-page
+  .formulario
+    =form_tag url(:login, :create), :method => :post do
+      .login-form
+        .form-group
+          %input{:placeholder => "Email", :type => "text", :name => "email"}/
+          %input{:placeholder => "Senha", :type => "password", :name => "password"}/
+          %button
+            login
+          %p.message
+            Não é cadastrado?
+            %a{:href => "/inicial/cadastrar"} Criar uma conta
