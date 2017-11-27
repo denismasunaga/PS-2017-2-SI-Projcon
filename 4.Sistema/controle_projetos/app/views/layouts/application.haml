@@ -13,8 +13,9 @@
     #navbar.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li.active
-          %a{:href => "#"} Listagem
-        %li
-          %a{:href => "#about"} Sobre
+          %a{:href => url(:inicial, :inicio)} Listagem
+        %li.active
+          =form_tag url(:login, :destroy), :method => :delete, :onsubmit=>"return confirm('Tem certeza que deseja sair');" do
+            =submit_tag "Sair", :class =>'navbar nav-link'
 
 =yield

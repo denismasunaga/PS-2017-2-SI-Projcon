@@ -1,5 +1,6 @@
 %div{:class => 'container'}
   =form_tag url(:projeto, :create), :method => :post do
+    -ap current_account
     %form.form-horizontal
       %fieldset
         #legend

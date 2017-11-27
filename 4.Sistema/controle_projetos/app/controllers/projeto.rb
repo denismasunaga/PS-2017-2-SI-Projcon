@@ -16,7 +16,6 @@ ControleProjetos::App.controllers :projeto do
   end
 
   get :atualizar, :with => :id do
-    ap params
     @projeto = Projeto.find_by(id: params['id'])
     render '/projeto/editar'
   end
@@ -34,6 +33,13 @@ ControleProjetos::App.controllers :projeto do
     if @projeto.delete
       redirect url(:inicial, :inicio)
     end
+  end
+
+  get :find do
+    ap params
+    @projetos = Projeto.where(nome: /#{params[:nome]}/)
+    ap @projetos.to_a
+    render '/inicial/telainicial'
   end
 
 end

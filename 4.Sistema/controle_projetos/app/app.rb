@@ -4,7 +4,15 @@ module ControleProjetos
     register Padrino::Helpers
     register Padrino::Admin::AccessControl
     enable :sessions
+    enable :authentication
+    set    :login_page, "/"
 
+    access_control.roles_for :any do |role|
+      role.protect "/inicial/telainicial"
+      role.protect "/projeto/editar"
+      role.protect "/projeto/new"
+      role.protect "/inicial/inicio"
+    end
 
     use Rack::Session::Cookie,
         :expire_after => 2592000, #1 mês
@@ -13,7 +21,7 @@ module ControleProjetos
 
     get :index do
       @account = Account.new
-      render '/login/login'
+      render '/login/login', layout: false
     end
   end
 end
