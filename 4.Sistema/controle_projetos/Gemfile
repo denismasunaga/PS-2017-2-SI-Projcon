@@ -15,16 +15,18 @@ source 'https://rubygems.org'
 
 # Project requirements
 gem 'rake'
-gem 'haml', '~> 4.0.7'
 gem 'awesome_print'
-gem 'mongoid_search'
+
 # Component requirements
+gem 'activesupport', '>= 3.1'
+gem 'bcrypt'
+gem 'haml'
+gem 'mongoid', '>= 3.0.0'
 
 # Test requirements
 
 # Padrino Stable Gem
 gem 'padrino', '0.14.1.1'
-gem 'mongoid'
 
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'

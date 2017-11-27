@@ -1,9 +1,10 @@
 ---
-:orm: none
+:orm: mongoid
 :test: none
 :mock: none
-:script: none
-:renderer: none
+:script: jquery
+:renderer: haml
 :stylesheet: none
 :namespace: ControleProjetos
 :migration_format: number
+:admin_renderer: haml

@@ -27,10 +27,12 @@
 #
 Padrino.configure_apps do
   # enable :sessions
-  set :session_secret, '29faf25f552376ff569a36f1273db1f59916d89b51037461f4c4a4cc06b06727'
+  set :session_secret, '69801318b8a3ceff5af28d9c9502af829a7c506feb3e1a8fbf681807c9707662'
   set :protection, :except => :path_traversal
   set :protect_from_csrf, true
 end
 
 # Mounts the core application for this project
+
+Padrino.mount("ControleProjetos::Admin", :app_file => Padrino.root('admin/app.rb')).to("/admin")
 Padrino.mount('ControleProjetos::App', :app_file => Padrino.root('app/app.rb')).to('/')
